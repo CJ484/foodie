@@ -1,0 +1,85 @@
+@import '../variables.scss';
+.desktop_nav {
+    max-width: 1300px;
+    width: 100%;
+    margin: $spacing-3;
+    background-color: $secondary-color;
+    max-height: 120px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 50px;
+    .nav_container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .nav_logo {
+            padding: $spacing-3;
+            a {
+                display: flex;
+                text-decoration: none;
+                h1 {
+                    font-family: $main-font;
+                    font-size: 2.5rem;
+                    color: $primary-color;
+                    margin: 0;
+                }
+                img {
+                    margin-right: 1rem;
+                    aspect-ratio: 1/1;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50px;
+                }
+            }
+        }
+
+        .nav_searchBar {
+            border-radius: 50px;
+            color: white;
+            input {
+                padding: $spacing-3;
+                border-radius: 50px;
+                border: none;
+                font-size: 1.5rem;
+                width: 100%;
+                &:focus {
+                    outline: none;
+                }
+            }
+            fieldset {
+                border-color: #ffefef;
+            }
+            img {
+                filter: brightness(0) invert(1);
+            }
+        }
+
+        .nav_menu {
+            margin-right: $spacing-3;
+            ul {
+                display: flex;
+                li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: $spacing-3;
+                    list-style-type: none;
+                    a {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        color: $primary-background;
+                        text-decoration: none;
+                        &:hover {
+                            color: rgb(255, 255, 255);
+                        }
+                    }
+                    img {
+                        filter: brightness(0) invert(1);
+                    }
+                }
+            }
+        }
+
+    }
+}
