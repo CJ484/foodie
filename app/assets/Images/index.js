@@ -5,5 +5,6 @@ import Heart from './heart.svg';
 import User from './user.svg';
 import sun from './sun.svg';
 import moon from './moon.svg';
+import backButton from './arrow-left.svg';
 
-export {banner, logo, searchSymbol, Heart, User, sun, moon}
+export {banner, logo, searchSymbol, Heart, User, sun, moon, backButton}
