@@ -42,7 +42,7 @@ const DesktopNav: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="/MyProfile">
+              <Link href="/LogIn">
                 <Image src={User} alt="Profile" />
               </Link>
             </li>
