@@ -1,13 +1,15 @@
+@import '../variables.scss';
 .foodCard {
     position: relative;
     display: flex;
-    max-width: 200px;
+    max-width: 400px;
     width: 100%;
-    max-height: 200px;
+    max-height: 400px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 1rem;
+    border: 4px solid $secondary-color;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     overflow: hidden;
@@ -19,16 +21,20 @@
         .foodCard__content {
             transform: translateY(0);
         }
+        .foodCard__image {
+            filter: brightness(0.7) grayscale(0%);
+        }
     }
     .foodCard__image {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 200px;
-        border-radius: 1rem;
+        height: 100%;
+        border-radius: 0.5rem;
         object-fit: cover;
         margin: 0 auto;
+        filter: grayscale(50%);
     }
 
     .foodCard__content {
@@ -42,6 +48,11 @@
         transform: translateY(75%);
         transition: all 0.3s ease;
         .foodCard__title {
+            color: rgb(50, 50, 50);
+            font-family: $tertiary-font;
+            background-color: $secondary-color;
+            border-radius: 1rem;
+            padding: $spacing-3;
             margin-top: 1rem;
             font-size: 1.5rem;
             font-weight: 600;

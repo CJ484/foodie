@@ -1,0 +1,21 @@
+@import '../_variables.scss';
+.searchResultsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .searchQuery {
+        font-size: 1.5rem;
+        margin: $spacing-2;
+        font-family: $tertiary-font;
+        color: rgb(112, 112, 112);
+    }
+    .foodResults {
+        max-width: 80vw;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-2;
+        justify-content: space-around;
+        margin: $spacing-2 10px;
+    }
+}
