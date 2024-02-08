@@ -1,7 +1,7 @@
-@import '../_variables.scss';
+@import "../_variables.scss";
 
 .body {
-    margin: $spacing-3;
+    margin: 0;
 }
 .main {
     background: $primary-background;
@@ -13,10 +13,12 @@
 
 .homePage {
     display: flex;
+    @media (max-width: $smaller-desktop-breakpoint) {
+        flex-direction: column;
+    }
     .spline {
         max-width: 1000px;
-        }
-        
+    }
 
     h1 {
         font-family: $main-font;
