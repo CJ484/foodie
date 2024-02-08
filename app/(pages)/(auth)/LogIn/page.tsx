@@ -1,9 +1,11 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import { ToastContainer } from 'react-toastify';
 import {LogInForm} from '../../../Component';
 import { logo } from '../../../assets/Images';
 import styles from '../../../assets/styles/pages/formPage.module.scss';
+import "react-toastify/dist/ReactToastify.css";
 const LogIn = () => {
 
     return (
@@ -13,6 +15,7 @@ const LogIn = () => {
                 <h1>Foodie</h1>
             </div>
             <LogInForm />
+            <ToastContainer />
         </div>
     );
     }

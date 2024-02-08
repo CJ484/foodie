@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Input } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
 import { backButton } from "../../assets/Images";
 import styles from "../../assets/styles/pages/formPage.module.scss";
 
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 const RegisterForm = () => {
-  const { register, handleSubmit } = useForm({
+
+  const { register, handleSubmit, control } = useForm({
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -17,12 +26,12 @@ const RegisterForm = () => {
     },
   });
 
-  const [data, setData] = useState();
+  const notify = (userData: any) => {
+    toast("Account Created for " + userData.firstName + " " + userData.lastName);
+  };
 
-  const submitForm = (formData: any) => {
-    setData(formData);
-    console.log(data);
-    
+  const submitForm: SubmitHandler<Inputs> = (data: any) => {
+    notify(data);
   };
 
   return (
@@ -31,36 +40,71 @@ const RegisterForm = () => {
         <Image src={backButton} alt="Back Button" />
       </Link>
       <h1>Register New Account</h1>
-      <Input
-        className={styles.input}
-        {...(register("firstName"), { required: true })}
-        type="text"
-        placeholder="First Name"
-      />
-      <Input
-        className={styles.input}
-        {...(register("lastName"), { required: true })}
-        type="text"
-        placeholder="Last Name"
-      />
-      <Input
-        className={styles.input}
-        type="text"
-        {...(register("email"), { required: true })}
-        placeholder="Email"
-      />
-        <Input
+      <Controller
+        control={control}
+        name="firstName"
+        rules={{ required: true }}
+        render={({ field }) => (
+          <Input
             className={styles.input}
+            {...field}
+            type="text"
+            placeholder="First Name"
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="lastName"
+        rules={{ required: true }}
+        render={({ field }) => (
+          <Input
+            className={styles.input}
+            {...field}
+            type="text"
+            placeholder="Last Name"
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="email"
+        rules={{ required: true }}
+        render={({ field }) => (
+          <Input
+            className={styles.input}
+            {...field}
+            type="email"
+            placeholder="Email"
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="password"
+        rules={{ required: true }}
+        render={({ field }) => (
+          <Input
+            className={styles.input}
+            {...field}
             type="password"
-            {...(register("password"), { required: true })}
             placeholder="Password"
-        />
-        <Input
+          />
+        )}
+      />
+      <Controller
+        control={control}
+        name="confirmPassword"
+        rules={{ required: true }}
+        render={({ field }) => (
+          <Input
             className={styles.input}
+            {...field}
             type="password"
-            {...(register("confirmPassword"), { required: true })}
             placeholder="Confirm Password"
-        />
+          />
+        )}
+      />
 
       <Button className={styles.button} type="submit">
         Create Account
