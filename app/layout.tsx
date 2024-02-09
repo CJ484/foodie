@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className={styles.global} lang="en">
       <Head>
         <link rel="icon" href="/icon.ico" />
         <meta charSet="UTF-8" />
