@@ -1,0 +1,21 @@
+@import '../variables.scss';
+.page404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $primary-color;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    border-radius: 50px;
+    .page404_text {
+        margin-right: 1rem;
+    }
+    .page404_link {
+        color: #000;
+        text-decoration: underline;
+    }
+}
