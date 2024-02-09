@@ -1,8 +1,6 @@
 'use client';
-import Image from 'next/image';
 import Spline from '@splinetool/react-spline';
 import Nav from './Component/Nav';
-import {banner} from './assets/Images';
 import styles from './assets/styles/pages/globals.module.scss';
 export default function Home() {
 	return (
@@ -11,7 +9,7 @@ export default function Home() {
 			<div className={styles.homePage}>
 				<Spline className={styles.spline} scene='https://prod.spline.design/YKciEfAnDTH5vI0T/scene.splinecode'></Spline>
 				<h1>
-          &quot;Unveiling Flavor:
+					&quot;Unveiling Flavor:
 					<br /> Where Recipes come to Life&quot;
 				</h1>
 			</div>
