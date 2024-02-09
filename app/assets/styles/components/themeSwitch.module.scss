@@ -1,3 +1,7 @@
-.theme_switcher {
+@import '../_variables.scss';
+.themeSwitch {
     margin: 0 $spacing-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
