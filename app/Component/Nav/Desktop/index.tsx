@@ -7,11 +7,10 @@ import {
 	searchSymbol,
 	User,
 	Heart,
-	sun,
-	moon,
 } from '../../../assets/Images';
 import styles from '../../../assets/styles/components/nav.module.scss';
-import {InputAdornment, TextField, Switch} from '@mui/material';
+import {InputAdornment, TextField} from '@mui/material';
+import { ThemeSwitch } from '../..';
 
 const DesktopNav: React.FC = () => {
 	const router = useRouter();
@@ -58,7 +57,7 @@ const DesktopNav: React.FC = () => {
 				<div className={styles.nav_menu}>
 					<ul>
 						<li>
-							<Link href='/Mylist'>
+							<Link href='/MyList'>
 								<Image src={Heart} alt='Favorites' />
 							</Link>
 						</li>
@@ -68,13 +67,7 @@ const DesktopNav: React.FC = () => {
 							</Link>
 						</li>
 						<li className={styles.theme_switcher}>
-							<Image src={sun} alt='light mode' />
-							<Switch
-								defaultChecked
-								color='default'
-								inputProps={{'aria-label': 'checkbox with default color'}}
-							/>
-							<Image src={moon} alt='dark mode' />
+							<ThemeSwitch />
 						</li>
 					</ul>
 				</div>
