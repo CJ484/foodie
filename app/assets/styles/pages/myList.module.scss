@@ -1,0 +1,23 @@
+@import '../_variables.scss';
+.myListPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    .myListPage_title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: $secondary-color;
+        font-family: $secondary-font;
+    }
+
+    .myListPage_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $spacing-3;
+        padding: $spacing-3;
+        width: 100%;
+        max-width: 1200px;
+    }
+}
