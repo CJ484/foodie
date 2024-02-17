@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { FoodCard, Nav, PageSelector } from "../../Component";
 import { ToastContainer } from "react-toastify";
 import { useSearchParams } from "next/navigation";
+import { Modal } from "@mui/material";
+import RecipeCardApi from "../../api/RecipeCard";
 import SpoonRecipes from "../../api/SpoonRecipes";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../../assets/styles/pages/searchResults.module.scss";
@@ -14,7 +16,15 @@ const SearchResults = () => {
   const [pageCountLimit, setPageCountLimit] = useState(0);
   const [resultsOffSet, setResultsOffSet] = useState(0);
 
-  
+  const [modalOpen, setModalOpen] = useState(false);
+  const [recipeImage, setRecipeImage] = useState("" as any);
+
+  const displayRecipeImage = (e: any) => {
+    RecipeCardApi({ recipeId: e.target.id }).then((response) => {
+      setRecipeImage(response.data.image);
+    });
+  };
+
   const searchFoodApi = async () => {
     await SpoonRecipes({
       incomingData: queryResults,
@@ -26,7 +36,7 @@ const SearchResults = () => {
   };
 
   const setPaginationLimit = (foodCount: number) => {
-    const pages = Math.ceil((foodCount / 10)) - 12;
+    const pages = Math.ceil(foodCount / 10) - 12;
 
     setPageCountLimit(pages);
   };
@@ -42,9 +52,7 @@ const SearchResults = () => {
   useEffect(() => {
     searchFoodApi();
     console.log(resultsOffSet);
-    
   }, [resultsOffSet]);
-  
 
   return (
     <div className={styles.searchResultsPage}>
@@ -54,10 +62,22 @@ const SearchResults = () => {
       </h1>
       <div className={styles.foodResults}>
         {foodData.map((data: any, index: number) => {
-          return <FoodCard key={index} data={data} />;
+          return (
+            <FoodCard recipeCardFunction={displayRecipeImage} setModalOpen={setModalOpen} key={index} data={data} />
+          );
         })}
       </div>
-      <PageSelector setResultsOffSet={setResultsOffSet} pageCount={pageCountLimit} />
+      <PageSelector
+        setResultsOffSet={setResultsOffSet}
+        pageCount={pageCountLimit}
+      />
+      <Modal
+        className={styles.modal}
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      >
+        <h1>Recipe Title</h1>
+      </Modal>
       <ToastContainer />
     </div>
   );
