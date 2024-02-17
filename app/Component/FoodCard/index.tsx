@@ -2,9 +2,10 @@ import Image from "next/image";
 import { Circles } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import styles from "../../assets/styles/components/foodCard.module.scss";
-const FoodCard = ({ data }: any) => {
-  const notify = () => toast('Added to Favorites!');
+const FoodCard = ({ data, setModalOpen }: any) => {
+  const notify = () => toast('Modal Open!');
   const addToFavorites = (id: number) => {
+    setModalOpen(true);
     notify();
   };
 
