@@ -51,8 +51,8 @@ const SearchResults = () => {
 
   useEffect(() => {
     searchFoodApi();
-    console.log(resultsOffSet);
-  }, [resultsOffSet]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, resultsOffSet]);
 
   return (
     <div className={styles.searchResultsPage}>
