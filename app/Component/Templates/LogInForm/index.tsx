@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import {toast} from 'react-toastify';
 import Link from "next/link";
 import Image from "next/image";
-import { backButton } from "../../assets/Images";
+import { backButton } from "../../../assets/Images";
 import styles from "../../assets/styles/pages/formPage.module.scss";
 
 const LogInForm = () => {

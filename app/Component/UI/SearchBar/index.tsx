@@ -2,12 +2,12 @@ import { TextField, InputAdornment } from "@mui/material";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 import Image from "next/image";
-import { searchSymbol } from "../../assets/Images";
+import { searchSymbol } from "../../../assets/Images";
 import styles from "../../assets/styles/components/nav.module.scss";
 
 const SearchBar = () => {
   	const router = useRouter();
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState("" as String);
 
 
   	const searchFoodApi = () => {

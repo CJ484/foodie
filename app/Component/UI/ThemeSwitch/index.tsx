@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import {Switch} from "@mui/material";
-import {sun, moon} from "../../assets/Images";
+import {sun, moon} from "../../../assets/Images";
 import styles from '../../assets/styles/components/themeSwitch.module.scss';
 
 const ThemeSwitch = () => {

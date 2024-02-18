@@ -1,8 +1,8 @@
-import LogInForm from './LogInForm';
-import RegisterForm from './RegisterForm';
-import FoodCard from './FoodCard';
+import LogInForm from './Templates/LogInForm';
+import RegisterForm from './Templates/RegisterForm';
+import FoodCard from './Templates/FoodCard';
 import Nav from './Nav';
-import PageSelector from './PageSelector';
-import ThemeSwitch from './ThemeSwitch';
+import PageSelector from './UI/PageSelector';
+import ThemeSwitch from './UI/ThemeSwitch';
 
 export {LogInForm, RegisterForm, FoodCard, Nav, PageSelector, ThemeSwitch};

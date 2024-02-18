@@ -7,7 +7,7 @@ import {
 } from '../../../assets/Images';
 import styles from '../../../assets/styles/components/nav.module.scss';
 import { ThemeSwitch } from '../..';
-import SearchBar from '../../SearchBar';
+import SearchBar from '../../UI/SearchBar';
 
 const DesktopNav: React.FC = () => {
 
