@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FoodCard, Nav, PageSelector, RecipeModal } from "../../Component";
 import { ToastContainer } from "react-toastify";
 import { useSearchParams } from "next/navigation";
-import RecipeCardApi from "../../api/RecipeCard";
-import SpoonRecipes from "../../api/SpoonRecipes";
+import {RecipeCardApi, SpoonRecipes} from "../../api";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../../assets/styles/pages/searchResults.module.scss";
 const SearchResults = () => {
@@ -19,7 +18,7 @@ const SearchResults = () => {
   const [recipeImage, setRecipeImage] = useState("" as any);
 
   const displayRecipeImage = (e: any) => {
-    RecipeCardApi({ recipeId: e.target.id }).then((response) => {
+    RecipeCardApi({ recipeId: e.target.id }).then((response: any) => {
       setRecipeImage(response.data.image);
     });
   };
