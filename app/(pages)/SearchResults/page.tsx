@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FoodCard, Nav, PageSelector } from "../../Component";
+import { FoodCard, Nav, PageSelector, RecipeModal } from "../../Component";
 import { ToastContainer } from "react-toastify";
 import { useSearchParams } from "next/navigation";
-import { Modal } from "@mui/material";
 import RecipeCardApi from "../../api/RecipeCard";
 import SpoonRecipes from "../../api/SpoonRecipes";
 import "react-toastify/dist/ReactToastify.css";
@@ -71,13 +70,7 @@ const SearchResults = () => {
         setResultsOffSet={setResultsOffSet}
         pageCount={pageCountLimit}
       />
-      <Modal
-        className={styles.modal}
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-      >
-        <h1>Recipe Title</h1>
-      </Modal>
+      <RecipeModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       <ToastContainer />
     </div>
   );
