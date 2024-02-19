@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FoodCard, Nav } from "../../Component";
-import { Modal } from "@mui/material";
-import SpoonRecipes from "../../api/SpoonRecipes";
+import { FoodCard, Nav, RecipeModal } from "../../Component";
+import UsersFavoriteFood from "../../api/UsersFavoriteFood";
 import styles from "../../assets/styles/pages/myList.module.scss";
 
 const MyList = () => {
@@ -18,18 +17,7 @@ const MyList = () => {
 
 
   const getFavoriteRecipes = async () => {
-    const favoriteRecipes = await Promise.all(
-      sampleFavoriteRecipes.map((recipeId: string) =>
-        SpoonRecipes({ incomingData: recipeId, resultOffset: 0 })
-      )
-    ).then((response) => {
-      const foodData = response.map((food: any) => {
-        const { id, title, image } = food.data.results[0];
-        return { id, title, image };
-      });
-
-      return foodData;
-    });
+    const favoriteRecipes = await UsersFavoriteFood({data: sampleFavoriteRecipes});
     setFoods(favoriteRecipes);
   };
   
@@ -50,13 +38,8 @@ const MyList = () => {
           );
         })}
       </div>
-      <Modal
-        className={styles.modal}
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-      >
-        <h1>Recipe Title</h1>
-      </Modal>
+      <RecipeModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+
     </div>
   );
 };
