@@ -3,7 +3,7 @@ import {useState} from "react";
 import {useRouter} from "next/navigation";
 import Image from "next/image";
 import { searchSymbol } from "../../../assets/Images";
-import styles from "../../assets/styles/components/nav.module.scss";
+import styles from "../../../assets/styles/components/nav.module.scss";
 
 const SearchBar = () => {
   	const router = useRouter();

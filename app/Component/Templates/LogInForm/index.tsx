@@ -5,7 +5,7 @@ import {toast} from 'react-toastify';
 import Link from "next/link";
 import Image from "next/image";
 import { backButton } from "../../../assets/Images";
-import styles from "../../assets/styles/pages/formPage.module.scss";
+import styles from "../../../assets/styles/pages/formPage.module.scss";
 
 const LogInForm = () => {
   const { register, handleSubmit, control } = useForm({
