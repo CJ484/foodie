@@ -1,4 +1,4 @@
-import RecipeCardApi from './RecipeCardApi';
+import RecipeCardApi from './RecipeCard';
 import UsersFavoriteFood from './UsersFavoriteFood';
 import SpoonRecipes from './SpoonRecipes';
 
