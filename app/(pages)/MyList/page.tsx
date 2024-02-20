@@ -7,10 +7,10 @@ import SkeletonCard from "../../Component/UI/SkeletonCard";
 
 const MyList = () => {
   const sampleFavoriteRecipes = [
-    "chicken suya",
-    "lamb chop fry",
-    "Broccoli Cheese Soup",
-    "thai fish cakes",
+    "716342",
+    "649196",
+    "636180",
+    "663108"
   ];
 
   const [foods, setFoods] = useState([] as any);
