@@ -5,5 +5,6 @@ import Nav from './Nav';
 import PageSelector from './UI/PageSelector';
 import ThemeSwitch from './UI/ThemeSwitch';
 import RecipeModal from './UI/RecipeModal';
+import SkeletonCard from './UI/SkeletonCard';
 
-export {LogInForm, RegisterForm, FoodCard, Nav, PageSelector, ThemeSwitch, RecipeModal};
+export {LogInForm, RegisterForm, FoodCard, Nav, PageSelector, ThemeSwitch, RecipeModal, SkeletonCard};
