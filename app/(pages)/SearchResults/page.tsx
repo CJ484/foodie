@@ -1,9 +1,15 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { FoodCard, Nav, PageSelector, RecipeModal, SkeletonCard } from "../../Component";
+import React, { useState, useEffect, Suspense } from "react";
+import {
+  FoodCard,
+  Nav,
+  PageSelector,
+  RecipeModal,
+  SkeletonCard,
+} from "../../Component";
 import { ToastContainer } from "react-toastify";
 import { useSearchParams } from "next/navigation";
-import {RecipeCardApi, SpoonRecipes} from "../../api";
+import { RecipeCardApi, SpoonRecipes } from "../../api";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../../assets/styles/pages/searchResults.module.scss";
 const SearchResults = () => {
@@ -52,34 +58,40 @@ const SearchResults = () => {
   useEffect(() => {
     setLoading(true);
     searchFoodApi();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, resultsOffSet]);
 
   return (
-    <div className={styles.searchResultsPage}>
-      <Nav />
-      <h1 className={styles.searchQuery}>
-        Search Results for &quot;{queryResults}&quot;
-      </h1>
-      <div className={styles.foodResults}>
-        {loading ? (
-          <SkeletonCard arrayNumber={6} />
-        ) : (
-          foodData.map((data: any, index: number) => {
-            return (
-              <FoodCard recipeCardFunction={displayRecipeImage} setModalOpen={setModalOpen} key={index} data={data} />
-            );
-          })
-
-        ) }
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className={styles.searchResultsPage}>
+        <Nav />
+        <h1 className={styles.searchQuery}>
+          Search Results for &quot;{queryResults}&quot;
+        </h1>
+        <div className={styles.foodResults}>
+          {loading ? (
+            <SkeletonCard arrayNumber={6} />
+          ) : (
+            foodData.map((data: any, index: number) => {
+              return (
+                <FoodCard
+                  recipeCardFunction={displayRecipeImage}
+                  setModalOpen={setModalOpen}
+                  key={index}
+                  data={data}
+                />
+              );
+            })
+          )}
+        </div>
+        <PageSelector
+          setResultsOffSet={setResultsOffSet}
+          pageCount={pageCountLimit}
+        />
+        <RecipeModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+        <ToastContainer />
       </div>
-      <PageSelector
-        setResultsOffSet={setResultsOffSet}
-        pageCount={pageCountLimit}
-      />
-      <RecipeModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
-      <ToastContainer />
-    </div>
+    </Suspense>
   );
 };
 
