@@ -3,14 +3,14 @@ import { toast } from "react-toastify";
 import styles from "../../../assets/styles/components/foodCard.module.scss";
 const FoodCard = ({ data, setModalOpen }: any) => {
   const notify = () => toast('Modal Open!');
-  const addToFavorites = (id: number) => {
+  const openPopup = (id: number) => {
     setModalOpen(true);
     notify();
   };
 
   return (
     <div
-      onClick={() => addToFavorites(data.id)}
+      onClick={() => openPopup(data.id)}
       aria-label={`Food id: ${data.id}`}
       className={styles.foodCard}
     >
